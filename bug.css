@@ -1,0 +1,15 @@
+The following CSS code has an uncommon error related to the specificity of selectors.  The `#myElement` selector, being an ID selector, should always override the class selector `.myClass`. However, if you have another selector with the same specificity, it can result in unexpected behavior.  For example, if there is an inherited style from a parent element that has the same specificity as `#myElement`, it might conflict.
+
+```css
+#myElement {
+  color: blue;
+}
+
+.myClass {
+  color: red;
+}
+
+#myElement.myClass {
+  color: green; /* This won't override #myElement if there's another conflict */
+}
+```
